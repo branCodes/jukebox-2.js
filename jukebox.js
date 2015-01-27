@@ -19,8 +19,10 @@ $(document).ready(function() {
     $(this).attr('disabled', true)
     var songString = prompt("Welcome to JukeBox!\nEnter a song to play:");
     var song = parseSong(songString);
-    playSong(song, 500);
-    $(this).html("Play!");
-    $(this).attr('disabled', false)
+    playSong(song, 500, function() {
+      $('button').html("Play!");
+      $('button').attr('disabled', false);
+    });
   });
 });
+
